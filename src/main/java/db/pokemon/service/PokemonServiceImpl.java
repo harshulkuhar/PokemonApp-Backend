@@ -31,7 +31,8 @@ public class PokemonServiceImpl implements PokemonService{
     }
 
     public String deletePokemon(int id) {
+        String pokemonName = pokemonRepository.findById(id).getName();
         pokemonRepository.deleteById(id);
-        return "Pokemon deleted from the database!";
+        return pokemonName+" deleted from the database!";
     }
 }
