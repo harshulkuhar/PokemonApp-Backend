@@ -5,6 +5,8 @@ import db.pokemon.repository.PokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -14,7 +16,12 @@ public class PokemonServiceImpl implements PokemonService{
     private PokemonRepository pokemonRepository;
 
     public List<Pokemon> getAllPokemon(){
-        return pokemonRepository.findAll();
+        List<Pokemon> pokemons =  pokemonRepository.findAll();
+        /*Comparator<Pokemon> compareById = (Pokemon p1, Pokemon p2) ->
+                                            p1.getId().Integer.compare(p2.getId());
+        pokemons.sort(compareById);*/
+        Collections.sort(pokemons);
+        return pokemons;
     }
     public Pokemon getPokemon(int id) {
         return pokemonRepository.findById(id);
