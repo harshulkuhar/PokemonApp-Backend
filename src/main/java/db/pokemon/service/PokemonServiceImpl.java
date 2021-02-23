@@ -17,9 +17,6 @@ public class PokemonServiceImpl implements PokemonService{
 
     public List<Pokemon> getAllPokemon(){
         List<Pokemon> pokemons =  pokemonRepository.findAll();
-        /*Comparator<Pokemon> compareById = (Pokemon p1, Pokemon p2) ->
-                                            p1.getId().Integer.compare(p2.getId());
-        pokemons.sort(compareById);*/
         Collections.sort(pokemons);
         return pokemons;
     }
