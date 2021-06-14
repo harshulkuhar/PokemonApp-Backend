@@ -31,7 +31,7 @@ public class PokemonServiceImpl implements PokemonService{
 
     public String updatePokemon(Pokemon pokemon) {
         pokemonRepository.save(pokemon);
-        return pokemon.getName()+" updated successfully!";
+        return pokemon.getName()+" updated successfully!!";
     }
 
     public String deletePokemon(int id) {
